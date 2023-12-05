@@ -7,6 +7,11 @@ export default function TextForm(props) {
         let newText = text.toUpperCase();
         setText(newText);
     }
+  //Handle Lower Case Text
+  const handleLowerCase = () => {
+    let newText = text.toLowerCase();
+    setText(newText);
+  } 
 //Handle On Change 
     const handleOnChange = (event) => {
         setText(event.target.value);
@@ -25,7 +30,8 @@ const clearText = () => {
   <textarea className={`form-control ${props.mode === 'dark' ? 'bg-dark text-light' : ' '}`} id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleOnChange}></textarea>
 </div>
 <button type="button" className="btn btn-primary" onClick={handleUpperCase}>convert to upper Case</button>
-<button type="button" className="btn btn-primary mx-3" onClick={clearText}>clear</button>
+<button type="button" className="btn btn-primary mx-2" onClick={handleLowerCase}>lower case</button>
+<button type="button" className="btn btn-danger" onClick={clearText}>clear</button>
 
 <p className='my-3'>characters: {text.length} & words: {text.split(/\s+/).length-1}</p>
 <p>{text}</p>
