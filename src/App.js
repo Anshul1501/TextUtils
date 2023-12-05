@@ -8,7 +8,7 @@ function App() {
 
     //Dark Mode 
    const toggleMode = () => {
-     if(mode == 'light'){
+     if(mode === "light"){
         setMode('dark')
         setModeText('Enable Light Mode');
         showAlert("success", "Dark Mode is Enabled");
@@ -23,9 +23,11 @@ function App() {
         document.body.style.color = "black"
      }
    }
+  
+      //pass alert state as object
+      const[alert, setAlert] = useState({msg:" ", type:" "});
 
    //Alert Message as an object
-
     const showAlert = (type, message) => {
     setAlert({
             msg: message,
@@ -42,8 +44,6 @@ function App() {
    const[mode, setMode] = useState('light');
    const[modeText, setModeText] = useState('Enable Dark Mode');
    
-   //pass alert state as object
-    const[alert, setAlert] = useState({msg:" ", type:" "});
 
     return (
         <> 
