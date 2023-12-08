@@ -34,6 +34,7 @@ const clearText = () => {
 <button type="button" className="btn btn-danger" onClick={clearText}>clear</button>
 
 <p className='my-3'>characters: {text.length} & words: {text.split(/\s+/).length-1}</p>
+<h3>Preview</h3>
 <p>{text}</p>
     </div>
   )

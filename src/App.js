@@ -3,9 +3,18 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
+import About from './components/About';
+import {
+   BrowserRouter as Router,
+   Switch,
+   Route,
+   Link,
+   Routes
+ } from "react-router-dom";
+ 
 
-function App() {
-
+function App(){
+   
     //Dark Mode 
    const toggleMode = () => {
      if(mode === "light"){
@@ -47,11 +56,16 @@ function App() {
 
     return (
         <> 
-     
-     <Alert showAlert={showAlert} alert={alert}/>
-     <Navbar mode={mode} toggleMode={toggleMode} modeText={modeText} />
-     <TextForm mode={mode} showAlert={showAlert} alert={alert} />
 
+          <Router>
+             <Alert showAlert={showAlert} alert={alert}/>
+             <Navbar mode={mode} toggleMode={toggleMode} modeText={modeText} />
+             <Routes>
+                <Route path='/About' element={<About/>}/>
+                <Route path='/' element={<TextForm mode={mode} showAlert={showAlert} alert={alert}/>}/>
+             </Routes>
+          </Router>
+   
      </>
     );
 }
